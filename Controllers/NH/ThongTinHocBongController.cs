@@ -86,7 +86,7 @@ namespace C500Hemis.Controllers.NH
             try
             {
                 ViewData["IdHocVien"] = new SelectList(await ApiServices_.GetAll<TbHocVien>("/api/nh/HocVien"), "IdHocVien", "Email");
-                ViewData["IdLoaiHocBong"] = new SelectList(await ApiServices_.GetAll<DmTuyChon>("/api/dm/LoaiHocBong"), "IdLoaiHocBong", "LoaiHocBong");
+                ViewData["IdLoaiHocBong"] = new SelectList(await ApiServices_.GetAll<DmLoaiHocBong>("/api/dm/LoaiHocBong"), "IdLoaiHocBong", "LoaiHocBong");
                 return View();
             }
             catch (Exception ex)
@@ -117,7 +117,7 @@ namespace C500Hemis.Controllers.NH
                     return RedirectToAction(nameof(Index));
                 }
                 ViewData["IdHocVien"] = new SelectList(await ApiServices_.GetAll<TbHocVien>("/api/nh/HocVien"), "IdHocVien", "Email", tbThongTinHocBong.IdHocVien);
-                ViewData["IdLoaiHocBong"] = new SelectList(await ApiServices_.GetAll<DmTuyChon>("/api/dm/LoaiHocBong"), "IdLoaiHocBong", "LoaiHocBong", tbThongTinHocBong.IdLoaiHocBong);
+                ViewData["IdLoaiHocBong"] = new SelectList(await ApiServices_.GetAll<DmLoaiHocBong>("/api/dm/LoaiHocBong"), "IdLoaiHocBong", "LoaiHocBong", tbThongTinHocBong.IdLoaiHocBong);
                 return View(tbThongTinHocBong);
             }
             catch (Exception ex)
@@ -145,7 +145,7 @@ namespace C500Hemis.Controllers.NH
                     return NotFound();
                 }
                 ViewData["IdHocVien"] = new SelectList(await ApiServices_.GetAll<TbHocVien>("/api/nh/HocVien"), "IdHocVien", "Email", tbThongTinHocBong.IdHocVien);
-                ViewData["IdLoaiHocBong"] = new SelectList(await ApiServices_.GetAll<DmTuyChon>("/api/dm/LoaiHocBong"), "IdLoaiHocBong", "LoaiHocBong", tbThongTinHocBong.IdLoaiHocBong);
+                ViewData["IdLoaiHocBong"] = new SelectList(await ApiServices_.GetAll<DmLoaiHocBong>("/api/dm/LoaiHocBong"), "IdLoaiHocBong", "LoaiHocBong", tbThongTinHocBong.IdLoaiHocBong);
                 return View(tbThongTinHocBong);
             }
             catch (Exception ex)
@@ -192,7 +192,7 @@ namespace C500Hemis.Controllers.NH
                     return RedirectToAction(nameof(Index));
                 }
                 ViewData["IdHocVien"] = new SelectList(await ApiServices_.GetAll<TbHocVien>("/api/nh/HocVien"), "IdHocVien", "Email", tbThongTinHocBong.IdHocVien);
-                ViewData["IdLoaiHocBong"] = new SelectList(await ApiServices_.GetAll<DmTuyChon>("/api/dm/LoaiHocBong"), "IdLoaiHocBong", "LoaiHocBong", tbThongTinHocBong.IdLoaiHocBong);
+                ViewData["IdLoaiHocBong"] = new SelectList(await ApiServices_.GetAll<DmLoaiHocBong>("/api/dm/LoaiHocBong"), "IdLoaiHocBong", "LoaiHocBong", tbThongTinHocBong.IdLoaiHocBong);
                 return View(tbThongTinHocBong);
             }
             catch (Exception ex)

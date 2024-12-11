@@ -91,11 +91,11 @@ namespace C500Hemis.Controllers.NH
         {
             try
             {
-                ViewData["IdHuyen"] = new SelectList(await ApiServices_.GetAll<DmCapKhenThuong>("/api/dm/Huyen"), "IdHuyen", "TenHuyen");
-                ViewData["IdLoaiKhuyetTat"] = new SelectList(await ApiServices_.GetAll<DmThiDuaGiaiThuongKhenThuong>("/api/dm/LoaiKhuyetTat"), "IdLoaiKhuyetTat", "LoaiKhuyetTat");
+                ViewData["IdHuyen"] = new SelectList(await ApiServices_.GetAll<DmHuyen>("/api/dm/Huyen"), "IdHuyen", "TenHuyen");
+                ViewData["IdLoaiKhuyetTat"] = new SelectList(await ApiServices_.GetAll<DmLoaiKhuyetTat>("/api/dm/LoaiKhuyetTat"), "IdLoaiKhuyetTat", "LoaiKhuyetTat");
                 ViewData["IdNguoi"] = new SelectList(await ApiServices_.GetAll<TbNguoi>("/api/Nguoi"), "IdNguoi", "name");
-                ViewData["IdTinh"] = new SelectList(await ApiServices_.GetAll<DmLoaiDanhHieuThiDuaGiaiThuongKhenThuong>("/api/dm/Tinh"), "IdTinh", "TenTinh");
-                ViewData["IdXa"] = new SelectList(await ApiServices_.GetAll<DmPhuongThucKhenThuong>("/api/dm/Xa"), "IdXa", "TenXa");
+                ViewData["IdTinh"] = new SelectList(await ApiServices_.GetAll<DmTinh>("/api/dm/Tinh"), "IdTinh", "TenTinh");
+                ViewData["IdXa"] = new SelectList(await ApiServices_.GetAll<DmXa>("/api/dm/Xa"), "IdXa", "TenXa");
                 return View();
             }
             catch (Exception ex)
@@ -125,11 +125,11 @@ namespace C500Hemis.Controllers.NH
                     await ApiServices_.Create<TbHocVien>("/api/nh/HocVien", tbHocVien);
                     return RedirectToAction(nameof(Index));
                 }
-                ViewData["IdHuyen"] = new SelectList(await ApiServices_.GetAll<DmCapKhenThuong>("/api/dm/Huyen"), "IdHuyen", "TenHuyen", tbHocVien.IdHuyen);
-                ViewData["IdLoaiKhuyetTat"] = new SelectList(await ApiServices_.GetAll<DmThiDuaGiaiThuongKhenThuong>("/api/dm/LoaiKhuyetTat"), "IdLoaiKhuyetTat", "LoaiKhuyetTat", tbHocVien.IdLoaiKhuyetTat);
+                ViewData["IdHuyen"] = new SelectList(await ApiServices_.GetAll<DmHuyen>("/api/dm/Huyen"), "IdHuyen", "TenHuyen", tbHocVien.IdHuyen);
+                ViewData["IdLoaiKhuyetTat"] = new SelectList(await ApiServices_.GetAll<DmLoaiKhuyetTat>("/api/dm/LoaiKhuyetTat"), "IdLoaiKhuyetTat", "LoaiKhuyetTat", tbHocVien.IdLoaiKhuyetTat);
                 ViewData["IdNguoi"] = new SelectList(await ApiServices_.GetAll<TbNguoi>("/api/Nguoi"), "IdNguoi", "name", tbHocVien.IdNguoi);
-                ViewData["IdTinh"] = new SelectList(await ApiServices_.GetAll<DmLoaiDanhHieuThiDuaGiaiThuongKhenThuong>("/api/dm/Tinh"), "IdTinh", "TenTinh", tbHocVien.IdTinh);
-                ViewData["IdXa"] = new SelectList(await ApiServices_.GetAll<DmPhuongThucKhenThuong>("/api/dm/Xa"), "IdXa", "TenXa", tbHocVien.IdXa);
+                ViewData["IdTinh"] = new SelectList(await ApiServices_.GetAll<DmTinh>("/api/dm/Tinh"), "IdTinh", "TenTinh", tbHocVien.IdTinh);
+                ViewData["IdXa"] = new SelectList(await ApiServices_.GetAll<DmXa>("/api/dm/Xa"), "IdXa", "TenXa", tbHocVien.IdXa);
                 return View(tbHocVien);
             }
             catch (Exception ex)
@@ -156,11 +156,11 @@ namespace C500Hemis.Controllers.NH
                 {
                     return NotFound();
                 }
-                ViewData["IdHuyen"] = new SelectList(await ApiServices_.GetAll<DmCapKhenThuong>("/api/dm/Huyen"), "IdHuyen", "TenHuyen", tbHocVien.IdHuyen);
-                ViewData["IdLoaiKhuyetTat"] = new SelectList(await ApiServices_.GetAll<DmThiDuaGiaiThuongKhenThuong>("/api/dm/LoaiKhuyetTat"), "IdLoaiKhuyetTat", "LoaiKhuyetTat", tbHocVien.IdLoaiKhuyetTat);
+                ViewData["IdHuyen"] = new SelectList(await ApiServices_.GetAll<DmHuyen>("/api/dm/Huyen"), "IdHuyen", "TenHuyen", tbHocVien.IdHuyen);
+                ViewData["IdLoaiKhuyetTat"] = new SelectList(await ApiServices_.GetAll<DmLoaiKhuyetTat>("/api/dm/LoaiKhuyetTat"), "IdLoaiKhuyetTat", "LoaiKhuyetTat", tbHocVien.IdLoaiKhuyetTat);
                 ViewData["IdNguoi"] = new SelectList(await ApiServices_.GetAll<TbNguoi>("/api/Nguoi"), "IdNguoi", "name", tbHocVien.IdNguoi);
-                ViewData["IdTinh"] = new SelectList(await ApiServices_.GetAll<DmLoaiDanhHieuThiDuaGiaiThuongKhenThuong>("/api/dm/Tinh"), "IdTinh", "TenTinh", tbHocVien.IdTinh);
-                ViewData["IdXa"] = new SelectList(await ApiServices_.GetAll<DmPhuongThucKhenThuong>("/api/dm/Xa"), "IdXa", "TenXa", tbHocVien.IdXa);
+                ViewData["IdTinh"] = new SelectList(await ApiServices_.GetAll<DmTinh>("/api/dm/Tinh"), "IdTinh", "TenTinh", tbHocVien.IdTinh);
+                ViewData["IdXa"] = new SelectList(await ApiServices_.GetAll<DmXa>("/api/dm/Xa"), "IdXa", "TenXa", tbHocVien.IdXa);
                 return View(tbHocVien);
             }
             catch (Exception ex)
@@ -206,11 +206,11 @@ namespace C500Hemis.Controllers.NH
                     }
                     return RedirectToAction(nameof(Index));
                 }
-                ViewData["IdHuyen"] = new SelectList(await ApiServices_.GetAll<DmCapKhenThuong>("/api/dm/Huyen"), "IdHuyen", "TenHuyen", tbHocVien.IdHuyen);
-                ViewData["IdLoaiKhuyetTat"] = new SelectList(await ApiServices_.GetAll<DmThiDuaGiaiThuongKhenThuong>("/api/dm/LoaiKhuyetTat"), "IdLoaiKhuyetTat", "LoaiKhuyetTat", tbHocVien.IdLoaiKhuyetTat);
+                ViewData["IdHuyen"] = new SelectList(await ApiServices_.GetAll<DmHuyen>("/api/dm/Huyen"), "IdHuyen", "TenHuyen", tbHocVien.IdHuyen);
+                ViewData["IdLoaiKhuyetTat"] = new SelectList(await ApiServices_.GetAll<DmLoaiKhuyetTat>("/api/dm/LoaiKhuyetTat"), "IdLoaiKhuyetTat", "LoaiKhuyetTat", tbHocVien.IdLoaiKhuyetTat);
                 ViewData["IdNguoi"] = new SelectList(await ApiServices_.GetAll<TbNguoi>("/api/Nguoi"), "IdNguoi", "name", tbHocVien.IdNguoi);
-                ViewData["IdTinh"] = new SelectList(await ApiServices_.GetAll<DmLoaiDanhHieuThiDuaGiaiThuongKhenThuong>("/api/dm/Tinh"), "IdTinh", "TenTinh", tbHocVien.IdTinh);
-                ViewData["IdXa"] = new SelectList(await ApiServices_.GetAll<DmPhuongThucKhenThuong>("/api/dm/Xa"), "IdXa", "TenXa", tbHocVien.IdXa);
+                ViewData["IdTinh"] = new SelectList(await ApiServices_.GetAll<DmTinh>("/api/dm/Tinh"), "IdTinh", "TenTinh", tbHocVien.IdTinh);
+                ViewData["IdXa"] = new SelectList(await ApiServices_.GetAll<DmXa>("/api/dm/Xa"), "IdXa", "TenXa", tbHocVien.IdXa);
                 return View(tbHocVien);
             }
             catch (Exception ex)

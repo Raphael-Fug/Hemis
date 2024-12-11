@@ -66,7 +66,7 @@
                         @count
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdHocVienNavigation.IdHocVien)
+                        @Html.DisplayFor(modelItem => item.IdHocVienNavigation.Email)
                     </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TenHocBong)
@@ -82,7 +82,7 @@
             </td>
 
             <td>
-                @Html.DisplayFor(modelItem => item.IdLoaiHocBongNavigation.IdLoaiHocBong)
+                @Html.DisplayFor(modelItem => item.IdLoaiHocBongNavigation.LoaiHocBong)
             </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.IdThongTinHocBong" class="btn" data-bs-toggle="tooltip" title="Chỉnh sửa">

@@ -6,11 +6,11 @@
     <title>@ViewData["Title"] - C500Hemis</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    
+
     <link rel="stylesheet" href="~/C500Hemis.styles.css" asp-append-version="true" />
     @await RenderSectionAsync("Heads", required: false)
     @await RenderSectionAsync("Styles", required: false)
-    
+
 </head>
 <body>
     <header>
@@ -23,7 +23,7 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1" id="navbar-nav">
-                        
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/Home/CB">Cán bộ (CB) </a>
                         </li>
@@ -36,33 +36,33 @@
                             <a class="nav-link text-dark" href="/Home/KHCN">khoa học công nghệ</a>
                         </li>
 
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link text-dark" href="/Home/NH">người học </a>
                         </li>
 
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link text-dark" href="/Home/CSVC">cơ sở vật chất </a>
                         </li>
 
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link text-dark" href="/Home/CSGD">cơ sở giáo dục </a>
                         </li>
 
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link text-dark" href="/Home/CTDT">chương trình đào tạo </a>
                         </li>
 
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link text-dark" href="/Home/TCTS">tài chính </a>
                         </li>
 
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link text-dark" href="/Home/TS">tuyển sinh </a>
-                       </li>
-                          <li class="nav-item">
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" href="/Home/VB">Văn bằng</a>
                         </li>
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link text-dark" href=""></a>
                         </li>
                     </ul>
@@ -75,7 +75,7 @@
             @RenderBody()
         </main>
     </div>
-    
+
 
     <footer class="border-top footer text-muted">
         <div class="container">

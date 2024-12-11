@@ -66,7 +66,7 @@
                     @count
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdHocVienNavigation.IdHocVien)
+                        @Html.DisplayFor(modelItem => item.IdHocVienNavigation.Email)
                     </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SoQuyetDinhKhenThuong)
@@ -75,17 +75,17 @@
                 @Html.DisplayFor(modelItem => item.NamKhenThuong)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdCapKhenThuongNavigation.IdCapKhenThuong)
+                @Html.DisplayFor(modelItem => item.IdCapKhenThuongNavigation.CapKhenThuong)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdDanhHieuThiDuaGiaiThuongKhenThuongNavigation.IdThiDuaGiaiThuongKhenThuong)
+                @Html.DisplayFor(modelItem => item.IdDanhHieuThiDuaGiaiThuongKhenThuongNavigation.ThiDuaGiaiThuongKhenThuong)
             </td>
 
             <td>
-                @Html.DisplayFor(modelItem => item.IdLoaiDanhHieuThiDuaGiaiThuongKhenThuongNavigation.IdLoaiDanhHieuThiDuaGiaiThuongKhenThuong)
+                        @Html.DisplayFor(modelItem => item.IdLoaiDanhHieuThiDuaGiaiThuongKhenThuongNavigation.LoaiDanhHieuThiDuaGiaiThuongKhenThuong)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdPhuongThucKhenThuongNavigation.IdPhuongThucKhenThuong)
+                @Html.DisplayFor(modelItem => item.IdPhuongThucKhenThuongNavigation.PhuongThucKhenThuong)
             </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.IdDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc" class="btn" data-bs-toggle="tooltip" title="Chỉnh sửa">

@@ -68,7 +68,7 @@
                         @count
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdHocVienNavigation.IdHocVien)
+                        @Html.DisplayFor(modelItem => item.IdHocVienNavigation.Email)
                     </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TenDonViCapBang)
@@ -83,11 +83,11 @@
                     @Html.DisplayFor(modelItem => item.MucLuongKhoiDiem)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdHinhThucTuyenDungNavigation.IdHinhThucTuyenDung)
+                    @Html.DisplayFor(modelItem => item.IdHinhThucTuyenDungNavigation.HinhThucTuyenDung)
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdViTriViecLamNavigation.IdViTriViecLam)
+                    @Html.DisplayFor(modelItem => item.IdViTriViecLamNavigation.ViTriViecLam)
                 </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.IdThongTinViecLamSauTotNghiep" class="btn" data-bs-toggle="tooltip" title="Chỉnh sửa">
