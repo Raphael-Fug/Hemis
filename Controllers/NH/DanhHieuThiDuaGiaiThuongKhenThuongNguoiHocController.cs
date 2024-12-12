@@ -39,6 +39,11 @@ namespace C500Hemis.Controllers.NH
             });
             return TbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHocs;
         }
+        private async Task<List<TbNguoi>> TbNguois()
+        {
+            List<TbNguoi> tbNguois = await ApiServices_.GetAll<TbNguoi>("/api/Nguoi");
+            return tbNguois;
+        }
 
         public async Task<IActionResult> Index()
         {
@@ -46,6 +51,8 @@ namespace C500Hemis.Controllers.NH
             {
                 List<TbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc> getall = await TbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHocs();
                 // Lấy data từ các table khác có liên quan (khóa ngoài) để hiển thị trên Index
+                Dictionary<int, string> idNguoiToName = (await TbNguois()).ToDictionary(x => x.IdNguoi, x => x.Ho + " " + x.Ten);
+                ViewData["idNguoiToName"] = idNguoiToName;
                 return View(getall);
                 // Bắt lỗi các trường hợp ngoại lệ
             }

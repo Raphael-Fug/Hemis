@@ -1,242 +1,350 @@
-﻿@section Styles{
-    <style type="text/css">
-        a:link { 
-            text-decoration: none; 
-        }
-    </style>
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
 }
-    <div class="m-0 card" style="margin-top:30px !important; border: none!important">
-        <div class="card">
-            <div class="card-body m-0">
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-3">
-                        <div class="col-12 col-sm-12 col-md-12 mb-3" id="divCB"></div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-9">
-                        <div class="row">
-                            <div class="col-12 col-sm-12 col-md-4 mb-3" id="divHTQT"></div>
-                            <div class="col-12 col-sm-12 col-md-4 mb-3" id="divCSVC"></div>
-                            <div class="col-12 col-sm-12 col-md-4 mb-3" id="divCSGD"></div>
-                            <div class="col-12 col-sm-12 col-md-4 mb-3" id="divKHCN"></div>
-                            <div class="col-12 col-sm-12 col-md-4 mb-3" id="divNH"></div>
-                            <div class="col-12 col-sm-12 col-md-4 mb-3" id="divCTDT"></div>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Index - Moderna Bootstrap Template</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Moderna
+    * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
+    * Updated: Aug 07 2024 with Bootstrap v5.3.3
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+            <a href="/Home" class="logo d-flex align-items-center">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <h1 class="sitename">HOME</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/DanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc">About</a></li>
+                    <li><a href="/HocVien">Services</a></li>
+                    <li><a href="/KyLuatNguoiHoc">Portfolio</a></li>
+                    <li><a href="/NguoiHocVayTinDung">Lỗi</a></li>
+                    <li><a href="/ThongTinHocBong">Blog</a></li>
+                    <li><a href="/ThongTinHocTapNghienCuuSinh">Lỗi</a></li>
+                    <li><a href="/ThongTinNguoiHocGdtc">Blog</a></li>
+                    <li><a href="/ThongTinViecLamSauTotNghiep">Blog</a></li>
+                    <li><a href="/ThongTinViPham">Blog</a></li>
+                    <li class="dropdown">
+                        <a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <ul>
+                            <li><a href="#">Dropdown 1</a></li>
+                            <li class="dropdown">
+                                <a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    <li><a href="#">Deep Dropdown 1</a></li>
+                                    <li><a href="#">Deep Dropdown 2</a></li>
+                                    <li><a href="#">Deep Dropdown 3</a></li>
+                                    <li><a href="#">Deep Dropdown 4</a></li>
+                                    <li><a href="#">Deep Dropdown 5</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Dropdown 2</a></li>
+                            <li><a href="#">Dropdown 3</a></li>
+                            <li><a href="#">Dropdown 4</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class="main">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero section dark-background">
+
+            <!-- <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in"> -->
+
+            <div id="hero-carousel" class="carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+                <div class="container position-relative">
+
+                    <div class="carousel-item active">
+                        <div class="carousel-container">
+                            <h2>Welcome to group 1</h2>
+                            <p>Thông tin số 1</p>
+                            <a href="#about" class="btn-get-started">Read More</a>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-3">
-                        <div class="col-12 col-sm-12 col-md-12 mb-3" id="divTC"></div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-9">
-                        <div class="row">
-                            <div class="col-12 col-sm-12 col-md-4 mb-3" id="divTS"></div>
-                            <div class="col-12 col-sm-12 col-md-4 mb-3" id="divVB"></div>
+                    </div><!-- End Carousel Item -->
+
+                    <div class="carousel-item">
+                        <div class="carousel-container">
+                            <h2>Welcome to group 1</h2>
+                            <p>Thông tin số 2</p>
+                            <a href="#about" class="btn-get-started">Read More</a>
                         </div>
-                    </div>
+                    </div><!-- End Carousel Item -->
+
+                    <div class="carousel-item">
+                        <div class="carousel-container">
+                            <h2>Welcome to group 1</h2>
+                            <p>Thông tin số 3</p>
+                            <a href="#about" class="btn-get-started">Read More</a>
+                        </div>
+                    </div><!-- End Carousel Item -->
+
+                    <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+                    </a>
+
+                    <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+                    </a>
+
+                    <ol class="carousel-indicators"></ol>
+
                 </div>
+
             </div>
-          </div>
-    </div>
-    
-@section Scripts{
-    <script type="text/javascript">
-        // Dữ liệu các liên kết Cán bộ
-        var linkDataCB = [
-            { title: "CSDL người 821-A", url: "/Nguoi/Index" },
-            { title: "Cán bộ", url: "/CanBo/Index" },
-            { title: "Cán bộ hướng dẫn sinh viên", url: "/CanBoHuongDanThanhCongSinhVien" },
-            { title: "Quá trình công tác của cán bộ", url: "/QuaTrinhCongTacCuaCanBo" },
-            { title: "Quá trình đào tạo của cán bộ", url: "/QuaTrinhDaoTaoCuaCanBo" },
-            { title: "Trình độ tiếng dân tộc", url: "/TrinhDoTiengDanToc" },
-            { title: "Chức danh khoa học của cán bộ -C", url: "/ChucDanhKhoaHocCuaCanBo" },
-            { title: "Đánh giá xếp loại cán bộ", url: "/DanhGiaXepLoaiCanBo" },
-            { title: "Danh hiệu thi đua và khen thưởng", url: "/DanhHieuThiDuaGiaiThuongKhenThuongCanBo" },
-            { title: "Diễn biến lương", url: "/DienBienLuong" },
-            { title: "Đối tượng chính sách cán bộ", url: "/DoiTuongChinhSachCanBo" },
-            { title: "Đơn vị công tác của cán bộ", url: "/DonViCongTacCuaCanBo" },
-            { title: "Đơn vị thỉnh giảng của cán bộ", url: "/DonViThinhGiangCuaCanBo" },
-            { title: "Giảng viên ngoại ngữ", url: "/GiangVienNn" },
-            { title: "Giáo viên quốc phòng an ninh", url: "/GiaoVienQpan" },
-            { title: "Hợp đồng", url: "/HopDong" },
-            { title: "Hợp đồng thỉnh giảng", url: "/HopDongThinhGiang" },
-            { title: "Khóa bồi dưỡng, tập huấn của cán bộ", url: "/KhoaBoiDuongTapHuanThamGiaCuaCanBo" },
-            { title: "Kỷ luật cán bộ", url: "/KyLuatCanBo" },
-            { title: "Lĩnh vực nghiên cứu của cán bộ", url: "/LinhVucNghienCuuCuaCanBo" },
-            { title: "Ngành dùng tên giảng dạy", url: "/NganhDungTenGiangDay" },
-            { title: "Ngành giảng dạy của cán bộ", url: "/NganhGiangDayCuaCanBo" },
-            { title: "Phụ cấp 902-", url: "/PhuCap" }
-        ];
 
-        // Dữ liệu cho Hợp tác quốc tế (HTQT)
-        var linkDataHTQT = [
-            { title: "Tổ chức hợp tác quốc tế 817-", url: "/TbToChucHopTacQuocTes" },
-            { title: "Thông tin hợp tác với tổ chức 915-", url: "/TbThongTinHopTacs" },
-            { title: "Hội thảo/ Hội nghị 814", url: "/TbHoiThaoHoiNghis" },
-            { title: "Đề án/ Dự án/ Chương trình 819", url: "/TbDeAnDuAnChuongTrinhs" },
-            { title: "Lưu học sinh, sinh viên nước ngoài 820-", url: "/TbLuuHocSinhSinhVienNns" },
-            { title: "Giảng viên được cử đi đào tạo 917-", url: "/TbGvduocCuDiDaoTaos" },
-            { title: "Đoàn công tác 901-", url: "/TbDoanCongTacs" },
-            { title: "Thành phần tham gia đoàn công tác 810-", url: "/TbThanhPhanThamGiaDoanCongTacs" },
-            { title: "Tổ chức hợp tác doanh nghiệp", url: "/TbToChucHopTacDoanhNghieps" }
-        ];
+        </section><!-- /Hero Section -->
+        <!-- Featured Services Section -->
+        <section id="featured-services" class="featured-services section">
 
-        // Dữ liệu cho Khoa học công nghệ (KHCN)
-        var linkDataKHCN = [
-            { title: "Bài báo KH đã công bố 919-", url: "/BaiBaoKhdaCongBo" },
-            { title: "Chuyển giao công nghệ và đào tạo 923-", url: "/ChuyenGiaoCongNgheVaDaoTao" },
-            { title: "Doanh Nghiệp KHCN", url: "/DoanhNghiepKhcn" },
-            { title: "Đối tượng tham gia 802-", url: "/DoiTuongThamGium" },
-            { title: "Giải thưởng khoa học", url: "/GiaiThuongKhoaHoc" },
-            { title: "Hoạt động bảo vệ môi trường 928-", url: "/HoatDongBaoVeMoiTruong" },
-            { title: "Nhiệm Vụ KHCN 827", url: "/NhiemVuKhcn" },
-            { title: "Nhóm nghiên cứu mạnh 905-", url: "/NhomNghienCuuManh" },
-            { title: "Sách Đã Xuất Bản 926-", url: "/SachDaXuatBan" },
-            { title: "Tài sản trí tuệ 932-", url: "/TaiSanTriTue" },
-            { title: "Tạp chí khoa học 813-", url: "/TapChiKhoaHoc" }
-        ];
+            <div class="container">
 
-        var linkDataNH = [
-            { title: "Danh hiệu thi đua giải thưởng khen thưởng người học 803", url: "/DanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc" },
-            { title: "Học viên 918-", url: "/HocVien" },
-            { title: "Kỷ luật người học 933-", url: "/KyLuatNguoiHoc" },
-            { title: "Người học vay tín dụng 903-", url: "/NguoiHocVayTinDung" },
-            { title: "Thông tin học bổng", url: "/ThongTinHocBong" },
-            { title: "Thông tin học tập nghiên cứu sinh-801", url: "/ThongTinHocTapNghienCuuSinh" },
-            { title: "Thông tin người học GDTC 927-", url: "/ThongTinNguoiHocGdtc" },
-            { title: "Thông tin việc làm sau tốt nghiệp 907-", url: "/ThongTinViecLamSauTotNghiep" },
-            { title: "Thông tin vi phạm 927-", url: "/ThongTinViPham" },
-        ];
+                <div class="row gy-4">
 
-        var linkDataCSVC = [
-            { title: "Đất Đai 832-", url: "/DatDai" },
-            { title: "Phòng Học, Giảng Đường, Hội Trường 912-", url: "/PhongHocGiangDuongHoiTruong" },
-            { title: "Kí Túc Xá 834-", url: "/KiTucXa" },
-            { title: "Công Trình Cơ Sở Vật Chất 922-", url: "/CongTrinhCoSoVatChat" },
-            { title: "Phòng Thí Nghiệm 826-", url: "/PhongThiNghiem" },
-            { title: "Phòng Thực Hành 826-", url: "/PhongThucHanh" },
-            { title: "Thiết Bị Phòng 832-", url: "/ThietBiPtnThtren500Tr" },
-            { title: "Thư Viện Trung Tâm Học Liệu 911-", url: "/ThuVienTrungTamHocLieu" },
-        ];
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-item item-cyan position-relative">
+                            <div class="icon">
+                                <i class="bi bi-activity"></i>
+                            </div>
+                            <a href="service-details.html" class="stretched-link">
+                                <h3>Thành viên thứ nhất</h3>
+                            </a>
+                            <p>Mô tả thành viên thứ nhất</p>
+                        </div>
+                    </div><!-- End Service Item -->
 
-        var linkDataCSGD = [
-            { title: "Cơ Cấu Tổ Chức 921-", url: "/CoCauToChuc" },
-            { title: "Cơ Sở Giáo Dục", url: "/CoSoGiaoDuc" },
-            { title: "Danh Hiệu Thi đua Giải Thưởng, Khen Thưởng Của Cơ Sở Giáo Dục 913-", url: "/DanhHieuThiDuaGiaiThuongKhenThuongCuaCoSoGd" },
-            { title: "Đầu Mối Liên Hệ 931-", url: "/DauMoiLienHe" },
-            { title: "Đơn Vị Liên Kết Đào Tạo Giáo Dục 930-", url: "/DonViLienKetDaoTaoGiaoDuc" },
-            { title: "Khóa Học 825-", url: "/KhoaHoc" },
-            { title: "Lịch Sử Đổi Tên Trường", url: "/LichSuDoiTenTruong" },
-            { title: "Tổ chức Kiểm Định", url: "/ToChucKiemDinh" },
-            { title: "Văn Bản Từ Chữ 825-", url: "/VanBanTuChu" },
-        ];
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-item item-orange position-relative">
+                            <div class="icon">
+                                <i class="bi bi-broadcast"></i>
+                            </div>
+                            <a href="service-details.html" class="stretched-link">
+                                <h3>Thành viên thứ hai</h3>
+                            </a>
+                            <p>Mô tả thành viên thứ hai</p>
+                        </div>
+                    </div><!-- End Service Item -->
 
-        var linkDataCTDT = [
-            { title: "Chương trình đào tạo 823-", url: "/ChuongTrinhDaoTao" },
-            { title: "Gia Hạn Chương Trình Đào Tạo 807-", url: "/GiaHanChuongTrinhDaoTao" },
-            { title: "Nắm Áp Dụng Chương Trình", url: "/NamApDungChuongTrinh" },
-            { title: "Ngôn Ngữ Giảng Dạy 812-", url: "/NgonNguGiangDay" },
-            { title: "Quyết Định Cấp Phép Chương Trình Dùng Cho Chương Trình Nước Ngoài", url: "/QuyetDinhCapPhepChuongTrinhDungChoChuongTrinhNuocNgoai" },
-            { title: "Thông Tin Kiểm Định Của Chương Trình 929-", url: "/ThongTinKiemDinhCuaChuongTrinh" },
-        ];
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-item item-teal position-relative">
+                            <div class="icon">
+                                <i class="bi bi-easel"></i>
+                            </div>
+                            <a href="service-details.html" class="stretched-link">
+                                <h3>Thành viên thứ ba</h3>
+                            </a>
+                            <p>Mô tả thành viên thứ ba</p>
+                        </div>
+                    </div><!-- End Service Item -->
 
-        var linkDataTC = [
-            { title: "Hoạt Động Tài Chính 824-", url: "/HoatDongTaiChinh" },
-            { title: "Khoản Nộp Ngân Sách 808-", url: "/KhoanNopNganSach" },
-            { title: "Khoản Trích Lập Quỹ 808-", url: "/KhoanTrichLapQuy" },
-            { title: "Loại Thu Chi 807-", url: "/LoaiThuChi" },
-            { title: "Tài Sản Đơn Vị", url: "/TaiSanDonVi" },
-            { title: "Chi Tiết Tài Sản Đơn Vị 920-", url: "/ChiTietTaiSanDonVi" },
-            { title: "Chi Tiết Thu Chi", url: "/ChiTietThuChi" },
-        ];
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-item item-red position-relative">
+                            <div class="icon">
+                                <i class="bi bi-bounding-box-circles"></i>
+                            </div>
+                            <a href="service-details.html" class="stretched-link">
+                                <h3>Thành viên thứ tư</h3>
+                            </a>
+                            <p>Mô tả thành viên thứ tư</p>
+                            <a href="service-details.html" class="stretched-link"></a>
+                        </div>
+                    </div><!-- End Service Item -->
+                </div>
 
-        var linkDataTS = [
-            { title: "Chỉ tiêu tuyển sinh theo ngành", url: "/TbChiTieuTuyenSinhTheoNganhs" },
-            { title: "Dữ liệu trúng tuyển 822", url: "/TbDuLieuTrungTuyens" },
-        ];
+            </div>
 
-        const linkDataVB = [
-            { title: "Danh sách văn bằng chứng chỉ 804-", url: "/DanhSachVanBangChungChi" }
-        ];
+        </section><!-- /Featured Services Section -->
+        <!-- About Section -->
+        <section id="about" class="about section light-background">
 
-        // Dữ liệu danh sách
-        var listItems = [
-            { id: "list-cb",    title: "Cán bộ (CB)",                   listLink: linkDataCB,       link: "/Home/CB"},
-            { id: "list-htqt",  title: "Hợp tác quốc tế (HTQT, HTDN)",  listLink: linkDataHTQT,     link: "/Home/htqt"},
-            { id: "list-khcn",  title: "Khoa học công nghệ",            listLink: linkDataKHCN,     link: "/Home/KHCN"},
-            { id: "list-nh",    title: "Người học",                     listLink: linkDataNH,       link: "/Home/NH"},
-            { id: "list-csvc",  title: "Cơ sở vật chất",                listLink: linkDataCSVC,     link: "/Home/CSVC"},
-            { id: "list-csgd",  title: "Cơ sở giáo dục",                listLink: linkDataCSGD,     link: "/Home/CSGD"},
-            { id: "list-ctdt",  title: "Chương trình đào tạo",          listLink: linkDataCTDT,     link: "/Home/CTDT"},
-            { id: "list-tc",    title: "Tài chính",                     listLink: linkDataTC,       link: "/Home/TCTS"},
-            { id: "list-ts",    title: "Tuyển sinh",                    listLink: linkDataTS,       link: "/Home/TS"},
-            { id: "list-vb",    title: "Văn bằng",                      listLink: linkDataVB,       link: "/Home/VB"}
-        ];
-        // Tạo vùng chức năng cho từng chức năng con cho thẻ div chỉ định
-        function createTabPanes(item, containerId, idx) {
-            var $tabContent = $(`#${containerId}`);
-            $tabContent.empty();
-            
-            var $linkA = $('<a class="h5 fw-bold"></a>').attr('href', item.link).text(item.title);
-                
-            var $linkList = $('<ul class="list-group list-group-flush mt-2"></ul>');
-            
-            item.listLink.forEach(function(linkItem) {
-                var $link = $('<li class="list-group-item fst-italic ms-3"></li>')
-                    .append($('<a></a>')
-                        .attr('href', linkItem.url)
-                        .text(linkItem.title));
-                $linkList.append($link);
-            });
-            $tabContent.append($linkA);
-            $tabContent.append($linkList);
-        }
+            <div class="container">
 
-        // Dữ liệu các mục điều hướng
-        var navItems = [
-        { title: "Cán bộ (CB)", url: "/Home/CB" },
-        { title: "Hợp tác quốc tế (HTQT, HTDN)", url: "/Home/htqt" },
-        { title: "Khoa học công nghệ", url: "/Home/KHCN" },
-        { title: "Người học", url: "/Home/NH" },
-        { title: "Cơ sở vật chất", url: "/Home/CSVC" },
-        { title: "Cơ sở giáo dục", url: "/Home/CSGD" },
-        { title: "Chương trình đào tạo", url: "/Home/CTDT" },
-        { title: "Tài chính", url: "/Home/TCTS" },
-        { title: "Tuyển sinh", url: "/Home/TS" },
-        { title: "Văn bằng", url: "/Home/VB" }
-        ];
-        
-        @* // Xây dựng hader:
-        function createNavbar(navItems, contanerNav) {
-            var $navbar = $(`#${contanerNav}`);
-            $navbar.empty();
-        
-            navItems.forEach(function(item) {
-                var $navItem = $('<li></li>').addClass('nav-item');
-                var $link = $('<a></a>')
-                    .addClass('nav-link text-dark')
-                    .attr('href', item.url)
-                    .attr('b-pahqt12xy2',"")
-                    .text(item.title);
-        
-                $navItem.append($link);
-                $navbar.append($navItem);
-            });
-        }
-        
-        // Tạo các mục danh sách bằng jQuery
-        createNavbar(navItems, 'navbar-nav'); *@
-        $(document).ready(function() {
-            createTabPanes(listItems[0], 'divCB');
-            createTabPanes(listItems[1], 'divHTQT');
-            createTabPanes(listItems[2], 'divKHCN');
-            createTabPanes(listItems[3], 'divNH');
-            createTabPanes(listItems[4], 'divCSVC');
-            createTabPanes(listItems[5], 'divCSGD');
-            createTabPanes(listItems[6], 'divCTDT');
-            createTabPanes(listItems[7], 'divTC');
-            createTabPanes(listItems[8], 'divTS');
-            createTabPanes(listItems[9], 'divVB');
-        });
-    </script>
+                <div class="row gy-4">
+                    <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets/img/about.jpg" class="img-fluid" alt="">
+                        <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+                    </div>
+                    <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Những điều tốt đẹp của cuộc sống mang lại sự thỏa mãn và hạnh phúc cho cơ thể.</h3>
+                        <p class="fst-italic">
+                            "Đau đớn và niềm vui, chúng ta trải qua những thời gian khó khăn và công việc nặng nhọc."
+                        </p>
+                        <ul>
+                            <li><i class="bi bi-check2-all"></i> <span>mô tả 1</span></li>
+                            <li><i class="bi bi-check2-all"></i> <span>mô tả 2</span></li>
+                            <li><i class="bi bi-check2-all"></i> <span>mô tả 3</span></li>
+                        </ul>
+                        <p>
+                            "Không có công việc nào mà không mang lại lợi ích từ nó. Điều này có thể gây ra sự đau đớn, nhưng không có gì có thể làm cho chúng ta không cảm thấy vui vẻ. Những người không nhận ra điều này sẽ không có sự thừa nhận."
+                        </p>
+                    </div>
+                </div>
 
-}
+            </div>
+
+        </section><!-- /About Section -->
+        <!-- Features Section -->
+        <section id="features" class="features section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Chức năng</h2>
+                <p>??????????????????????????</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row gy-4 align-items-center features-item">
+                    <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+                        <img src="assets/img/features-1.svg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Chức năng 1</h3>
+                        <p class="fst-italic">
+                            mô tả
+                        </p>
+                        <ul>
+                            <li><i class="bi bi-check"></i><span>TN 1</span></li>
+                            <li><i class="bi bi-check"></i> <span>TN 2</span></li>
+                            <li><i class="bi bi-check"></i> <span>TN 3</span></li>
+                        </ul>
+                    </div>
+                </div><!-- Features Item -->
+
+                <div class="row gy-4 align-items-center features-item">
+                    <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+                        <img src="assets/img/features-2.svg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Chức năng 2</h3>
+                        <p class="fst-italic">
+                            mô tả 1
+                        </p>
+                        <p>
+                            mô tả 2
+                        </p>
+                    </div>
+                </div><!-- Features Item -->
+
+                <div class="row gy-4 align-items-center features-item">
+                    <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out">
+                        <img src="assets/img/features-3.svg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-7" data-aos="fade-up">
+                        <h3>Chức năng 3</h3>
+                        <p>mô tả</p>
+                        <ul>
+                            <li><i class="bi bi-check"></i> <span>CN 1</span></li>
+                            <li><i class="bi bi-check"></i><span>CN 2</span></li>
+                            <li><i class="bi bi-check"></i> <span>CN 3</span></li>
+                        </ul>
+                    </div>
+                </div><!-- Features Item -->
+
+                <div class="row gy-4 align-items-center features-item">
+                    <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out">
+                        <img src="assets/img/features-4.svg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-7 order-2 order-md-1" data-aos="fade-up">
+                        <h3>Chức năng 4</h3>
+                        <p class="fst-italic">
+                            Mô tả 1
+                        </p>
+                        <p>
+                            Mô tả 2
+                        </p>
+                    </div>
+                </div><!-- Features Item -->
+
+            </div>
+
+        </section><!-- /Features Section -->
+
+    </main>
+
+    <footer id="footer" class="footer dark-background">
+
+
+        <div class="container copyright text-center mt-4">
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">Moderna</strong> <span>All Rights Reserved</span></p>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you've purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
