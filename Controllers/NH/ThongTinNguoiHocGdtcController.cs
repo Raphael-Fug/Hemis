@@ -30,13 +30,20 @@ namespace C500Hemis.Controllers.NH
             });
             return TbThongTinNguoiHocGdtcs;
         }
-
+        private async Task<List<TbNguoi>> TbNguois()
+        {
+            List<TbNguoi> tbNguois = await ApiServices_.GetAll<TbNguoi>("/api/Nguoi");
+            return tbNguois;
+        }
         public async Task<IActionResult> Index()
         {
             try
             {
                 List<TbThongTinNguoiHocGdtc> getall = await TbThongTinNguoiHocGdtcs();
                 // Lấy data từ các table khác có liên quan (khóa ngoài) để hiển thị trên Index
+                //Bổ xung liên kết api ngoài
+                Dictionary<int, string> idNguoiToName = (await TbNguois()).ToDictionary(x => x.IdNguoi, x => x.Ho + " " + x.Ten);
+                ViewData["idNguoiToName"] = idNguoiToName;
                 return View(getall);
                 // Bắt lỗi các trường hợp ngoại lệ
             }
@@ -84,6 +91,9 @@ namespace C500Hemis.Controllers.NH
             try
             {
                 ViewData["IdHocVien"] = new SelectList(await ApiServices_.GetAll<TbHocVien>("/api/nh/HocVien"), "IdHocVien", "Email");
+                //Bổ xung liên kết api ngoài
+                Dictionary<int, string> idNguoiToName = (await TbNguois()).ToDictionary(x => x.IdNguoi, x => x.Ho + " " + x.Ten);
+                ViewData["idNguoiToName"] = idNguoiToName;
                 return View();
             }
             catch (Exception ex)
@@ -114,6 +124,9 @@ namespace C500Hemis.Controllers.NH
                     return RedirectToAction(nameof(Index));
                 }
                 ViewData["IdHocVien"] = new SelectList(await ApiServices_.GetAll<TbHocVien>("/api/nh/HocVien"), "IdHocVien", "Email", tbThongTinNguoiHocGdtc.IdThongTinNguoiHocGdtc);
+                //Bổ xung liên kết api ngoài
+                Dictionary<int, string> idNguoiToName = (await TbNguois()).ToDictionary(x => x.IdNguoi, x => x.Ho + " " + x.Ten);
+                ViewData["idNguoiToName"] = idNguoiToName;
                 return View(tbThongTinNguoiHocGdtc);
             }
             catch (Exception ex)
@@ -140,7 +153,9 @@ namespace C500Hemis.Controllers.NH
                 {
                     return NotFound();
                 }
-                ViewData["IdHocVien"] = new SelectList(await ApiServices_.GetAll<TbHocVien>("/api/nh/HocVien"), "IdHocVien", "Email", tbThongTinNguoiHocGdtc.IdThongTinNguoiHocGdtc);
+                ViewData["IdHocVien"] = new SelectList(await ApiServices_.GetAll<TbHocVien>("/api/nh/HocVien"), "IdHocVien", "Email", tbThongTinNguoiHocGdtc.IdThongTinNguoiHocGdtc);//Bổ xung liên kết api ngoài
+                Dictionary<int, string> idNguoiToName = (await TbNguois()).ToDictionary(x => x.IdNguoi, x => x.Ho + " " + x.Ten);
+                ViewData["idNguoiToName"] = idNguoiToName;
                 return View(tbThongTinNguoiHocGdtc);
             }
             catch (Exception ex)
@@ -187,6 +202,9 @@ namespace C500Hemis.Controllers.NH
                     return RedirectToAction(nameof(Index));
                 }
                 ViewData["IdHocVien"] = new SelectList(await ApiServices_.GetAll<TbHocVien>("/api/nh/HocVien"), "IdHocVien", "Email", tbThongTinNguoiHocGdtc.IdThongTinNguoiHocGdtc);
+                //Bổ xung liên kết api ngoài
+                Dictionary<int, string> idNguoiToName = (await TbNguois()).ToDictionary(x => x.IdNguoi, x => x.Ho + " " + x.Ten);
+                ViewData["idNguoiToName"] = idNguoiToName;
                 return View(tbThongTinNguoiHocGdtc);
             }
             catch (Exception ex)

@@ -3,6 +3,8 @@
 
 @{
     ViewData["Title"] = "Thông tin vi phạm";
+    Dictionary<int, string> idNguoiToName = (Dictionary<int, string>)ViewData["idNguoiToName"];
+
 }
 <html lang="vi">
 @section Heads {
@@ -30,6 +32,9 @@
 
             <tr>
                 <th>STT</th>
+                <th>
+                    Họ và tên
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.IdHocVien)
                 </th>
@@ -62,6 +67,11 @@
                 <tr >
                     <td> 
                         @count
+                    </td>
+                    <td>
+                        @if (item.IdHocVienNavigation.IdNguoi != null)
+                            @Html.DisplayFor(modelItem => idNguoiToName[item.IdHocVienNavigation.IdNguoi ?? 0])
+
                     </td>
                     <td class="text-center">
                         @Html.DisplayFor(modelItem => item.IdHocVienNavigation.Email)

@@ -105,6 +105,9 @@ namespace C500Hemis.Controllers.NH
                 ViewData["IdHocVien"] = new SelectList(await ApiServices_.GetAll<TbHocVien>("/api/nh/HocVien"), "IdHocVien", "Email");
                 ViewData["IdLoaiDanhHieuThiDuaGiaiThuongKhenThuong"] = new SelectList(await ApiServices_.GetAll<DmLoaiDanhHieuThiDuaGiaiThuongKhenThuong>("/api/dm/LoaiDanhHieuThiDuaGiaiThuongKhenThuong"), "IdLoaiDanhHieuThiDuaGiaiThuongKhenThuong", "LoaiDanhHieuThiDuaGiaiThuongKhenThuong");
                 ViewData["IdPhuongThucKhenThuong"] = new SelectList(await ApiServices_.GetAll<DmPhuongThucKhenThuong>("/api/dm/PhuongThucKhenThuong"), "IdPhuongThucKhenThuong", "PhuongThucKhenThuong");
+                //Bổ xung liên kết api ngoài
+                Dictionary<int, string> idNguoiToName = (await TbNguois()).ToDictionary(x => x.IdNguoi, x => x.Ho + " " + x.Ten);
+                ViewData["idNguoiToName"] = idNguoiToName;
                 return View();
             }
             catch (Exception ex)
@@ -139,6 +142,9 @@ namespace C500Hemis.Controllers.NH
                 ViewData["IdHocVien"] = new SelectList(await ApiServices_.GetAll<TbHocVien>("/api/nh/HocVien"), "IdHocVien", "Email", tbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc.IdHocVien);
                 ViewData["IdLoaiDanhHieuThiDuaGiaiThuongKhenThuong"] = new SelectList(await ApiServices_.GetAll<DmLoaiDanhHieuThiDuaGiaiThuongKhenThuong>("/api/dm/LoaiDanhHieuThiDuaGiaiThuongKhenThuong"), "IdLoaiDanhHieuThiDuaGiaiThuongKhenThuong", "LoaiDanhHieuThiDuaGiaiThuongKhenThuong", tbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc.IdLoaiDanhHieuThiDuaGiaiThuongKhenThuong);
                 ViewData["IdPhuongThucKhenThuong"] = new SelectList(await ApiServices_.GetAll<DmPhuongThucKhenThuong>("/api/dm/PhuongThucKhenThuong"), "IdPhuongThucKhenThuong", "PhuongThucKhenThuong", tbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc.IdPhuongThucKhenThuong);
+                //Bổ xung liên kết api ngoài
+                Dictionary<int, string> idNguoiToName = (await TbNguois()).ToDictionary(x => x.IdNguoi, x => x.Ho + " " + x.Ten);
+                ViewData["idNguoiToName"] = idNguoiToName;
                 return View(tbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc);
             }
             catch (Exception ex)
@@ -171,6 +177,9 @@ namespace C500Hemis.Controllers.NH
                 ViewData["IdHocVien"] = new SelectList(await ApiServices_.GetAll<TbHocVien>("/api/nh/HocVien"), "IdHocVien", "Email", tbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc.IdHocVien);
                 ViewData["IdLoaiDanhHieuThiDuaGiaiThuongKhenThuong"] = new SelectList(await ApiServices_.GetAll<DmLoaiDanhHieuThiDuaGiaiThuongKhenThuong>("/api/dm/LoaiDanhHieuThiDuaGiaiThuongKhenThuong"), "IdLoaiDanhHieuThiDuaGiaiThuongKhenThuong", "LoaiDanhHieuThiDuaGiaiThuongKhenThuong", tbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc.IdLoaiDanhHieuThiDuaGiaiThuongKhenThuong);
                 ViewData["IdPhuongThucKhenThuong"] = new SelectList(await ApiServices_.GetAll<DmPhuongThucKhenThuong>("/api/dm/PhuongThucKhenThuong"), "IdPhuongThucKhenThuong", "PhuongThucKhenThuong", tbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc.IdPhuongThucKhenThuong);
+                //Bổ xung liên kết api ngoài
+                Dictionary<int, string> idNguoiToName = (await TbNguois()).ToDictionary(x => x.IdNguoi, x => x.Ho + " " + x.Ten);
+                ViewData["idNguoiToName"] = idNguoiToName;
                 return View(tbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc);
             }
             catch (Exception ex)
@@ -222,6 +231,9 @@ namespace C500Hemis.Controllers.NH
                 ViewData["IdHocVien"] = new SelectList(await ApiServices_.GetAll<TbHocVien>("/api/nh/HocVien"), "IdHocVien", "Email", tbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc.IdHocVien);
                 ViewData["IdLoaiDanhHieuThiDuaGiaiThuongKhenThuong"] = new SelectList(await ApiServices_.GetAll<DmLoaiDanhHieuThiDuaGiaiThuongKhenThuong>("/api/dm/LoaiDanhHieuThiDuaGiaiThuongKhenThuong"), "IdLoaiDanhHieuThiDuaGiaiThuongKhenThuong", "LoaiDanhHieuThiDuaGiaiThuongKhenThuong", tbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc.IdLoaiDanhHieuThiDuaGiaiThuongKhenThuong);
                 ViewData["IdPhuongThucKhenThuong"] = new SelectList(await ApiServices_.GetAll<DmPhuongThucKhenThuong>("/api/dm/PhuongThucKhenThuong"), "IdPhuongThucKhenThuong", "PhuongThucKhenThuong", tbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc.IdPhuongThucKhenThuong);
+                //Bổ xung liên kết api ngoài
+                Dictionary<int, string> idNguoiToName = (await TbNguois()).ToDictionary(x => x.IdNguoi, x => x.Ho + " " + x.Ten);
+                ViewData["idNguoiToName"] = idNguoiToName;
                 return View(tbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc);
             }
             catch (Exception ex)

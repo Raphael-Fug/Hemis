@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Dictionary<int, string> idNguoiToName = (Dictionary<int, string>)ViewData["idNguoiToName"];
 }
 
 <!-- Link to Bootstrap CSS and Google Fonts -->
@@ -53,7 +54,17 @@
                     <select asp-for="IdHocVien" class="form-control" asp-items="ViewBag.IdHocVien"></select>
                     <span asp-validation-for="IdHocVien" class="text-danger"></span>
                 </div>
-
+                <div class="form-group">
+                    <label asp-for="IdHocVienNavigation" class="control-label"></label>
+                    <select asp-for="IdHocVienNavigation" class="form-control">
+                        <option value="">-- Chọn học viên --</option>
+                        @foreach (var item in idNguoiToName)
+                        {
+                            <option value="@item.Key">@item.Value</option>
+                        }
+                    </select>
+                    <span asp-validation-for="IdHocVienNavigation" class="text-danger"></span>
+                </div>
                 <div class="form-group">
                     <label asp-for="SoTienDuocVay" class="control-label"></label>
                     <input asp-for="SoTienDuocVay" class="form-control" />

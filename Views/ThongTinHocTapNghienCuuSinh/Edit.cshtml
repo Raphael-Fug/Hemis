@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Dictionary<int, string> idNguoiToName = (Dictionary<int, string>)ViewData["idNguoiToName"];
+
 }
 @section Heads {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -38,7 +40,19 @@
                 <select asp-for="IdHocVien" class="form-control" asp-items="ViewBag.IdHocVien"></select>
             </div>
         </div>
-
+        <div class="row">
+            <div class="form-group">
+                <label asp-for="IdHocVienNavigation" class="control-label"></label>
+                <select asp-for="IdHocVienNavigation" class="form-control">
+                    <option value="">-- Chọn học viên --</option>
+                    @foreach (var item in idNguoiToName)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+                <span asp-validation-for="IdHocVienNavigation" class="text-danger"></span>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-6">
                 <label asp-for="IdDoiTuongDauVao" class="control-label"></label>
@@ -126,13 +140,27 @@
             <span asp-validation-for="QuyChuanNguoiHuongDan" class="text-danger"></span>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <label asp-for="IdNguoiHuongDanChinh" class="control-label"></label>
-                <select asp-for="IdNguoiHuongDanChinh" class="form-control" asp-items="ViewBag.IdCanBo"></select>
+            <div class="form-group">
+                <label asp-for="IdNguoiHuongDanChinhNavigation" class="control-label"></label>
+                <select asp-for="IdNguoiHuongDanChinhNavigation" class="form-control">
+                    <option value="">-- Chọn học viên --</option>
+                    @foreach (var item in idNguoiToName)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+                <span asp-validation-for="IdHocVienNavigation" class="text-danger"></span>
             </div>
-            <div class="col-md-6">
-                <label asp-for="IdNguoiHuongDanPhu" class="control-label"></label>
-                <select asp-for="IdNguoiHuongDanPhu" class="form-control" asp-items="ViewBag.IdCanBo"></select>
+            <div class="form-group">
+                <label asp-for="IdNguoiHuongDanPhuNavigation" class="control-label"></label>
+                <select asp-for="IdNguoiHuongDanPhuNavigation" class="form-control">
+                    <option value="">-- Chọn học viên --</option>
+                    @foreach (var item in idNguoiToName)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+                <span asp-validation-for="IdHocVienNavigation" class="text-danger"></span>
             </div>
         </div>
         <div class="row">

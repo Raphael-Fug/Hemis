@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Index";
+    Dictionary<int, string> idNguoiToName = (Dictionary<int, string>)ViewData["idNguoiToName"];
+
 }
 <html lang="vi">
 @section Heads {
@@ -30,7 +32,10 @@
                     STT
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdHocVienNavigation)
+                    Họ tên
+                </th>
+                <th>
+                    Email
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.IdDoiTuongDauVaoNavigation)
@@ -116,6 +121,11 @@
                 <tr>
                     <td>
                         @count
+                    </td>
+                    <td>
+                        @if (item.IdHocVienNavigation.IdNguoi != null)
+                            @Html.DisplayFor(modelItem => idNguoiToName[item.IdHocVienNavigation.IdNguoi ?? 0])
+
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.IdHocVienNavigation.Email)
@@ -219,10 +229,14 @@
                         @Html.DisplayFor(modelItem => item.QuyChuanNguoiHuongDan)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdNguoiHuongDanChinhNavigation.IdCanBo)
+                        @if (item.IdNguoiHuongDanChinhNavigation.IdNguoi != null)
+                            @Html.DisplayFor(modelItem => idNguoiToName[item.IdNguoiHuongDanChinhNavigation.IdNguoi ?? 0])
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdNguoiHuongDanPhuNavigation.IdCanBo)
+                        @if (item.IdNguoiHuongDanPhuNavigation.IdNguoi != null)
+                            @Html.DisplayFor(modelItem => idNguoiToName[item.IdNguoiHuongDanPhuNavigation.IdNguoi ?? 0])
+
+
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.SoQuyetDinhCongNhan)
