@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Dictionary<int, string> idNguoiToName = (Dictionary<int, string>)ViewData["idNguoiToName"];
 }
 <html lang="vi">
 @section Heads {
@@ -26,10 +27,13 @@
 <table class="table table-hover " id="example">
     <thead>
         <tr>
-                <th>STT</th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IdHocVienNavigation)
-                </th>
+            <th>STT</th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdHocVienNavigation)
+            </th>
+            <th>
+                Email
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.SoQuyetDinhKhenThuong)
             </th>
@@ -64,29 +68,33 @@
             <tr>
                 <td>
                     @count
-                    </td>
-                    <td>
+                </td>
+                <td>
+                    @if (item.IdHocVienNavigation.IdNguoi!=null)
+                    @Html.DisplayFor(modelItem => idNguoiToName[item.IdHocVienNavigation.IdNguoi ?? 0])
+                </td>
+                <td>
                         @Html.DisplayFor(modelItem => item.IdHocVienNavigation.Email)
-                    </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SoQuyetDinhKhenThuong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NamKhenThuong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdCapKhenThuongNavigation.CapKhenThuong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdDanhHieuThiDuaGiaiThuongKhenThuongNavigation.ThiDuaGiaiThuongKhenThuong)
-            </td>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoQuyetDinhKhenThuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NamKhenThuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdCapKhenThuongNavigation.CapKhenThuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdDanhHieuThiDuaGiaiThuongKhenThuongNavigation.ThiDuaGiaiThuongKhenThuong)
+                </td>
 
-            <td>
-                        @Html.DisplayFor(modelItem => item.IdLoaiDanhHieuThiDuaGiaiThuongKhenThuongNavigation.LoaiDanhHieuThiDuaGiaiThuongKhenThuong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdPhuongThucKhenThuongNavigation.PhuongThucKhenThuong)
-            </td>
+                <td>
+                            @Html.DisplayFor(modelItem => item.IdLoaiDanhHieuThiDuaGiaiThuongKhenThuongNavigation.LoaiDanhHieuThiDuaGiaiThuongKhenThuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdPhuongThucKhenThuongNavigation.PhuongThucKhenThuong)
+                </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.IdDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc" class="btn" data-bs-toggle="tooltip" title="Chỉnh sửa">
                         <div class="icon-container">
