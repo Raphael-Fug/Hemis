@@ -82,12 +82,12 @@
                 <th>
                     @Html.DisplayNameFor(model => model.QuyChuanNguoiHuongDan)
                 </th>
-                <th>
+@*                 <th>
                     @Html.DisplayNameFor(model => model.IdNguoiHuongDanChinhNavigation)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.IdNguoiHuongDanPhuNavigation)
-                </th>
+                </th> *@
                 <th>
                     @Html.DisplayNameFor(model => model.SoQuyetDinhCongNhan)
                 </th>
@@ -228,14 +228,14 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.QuyChuanNguoiHuongDan)
                     </td>
-                    <td>
-                        @if (item.IdNguoiHuongDanChinhNavigation.IdNguoi != null)
+@*                     <td>
+                        @if (item.IdNguoiHuongDanChinhNavigation.IdNguoiNavigation.IdNguoi != null)
                             @Html.DisplayFor(modelItem => idNguoiToName[item.IdNguoiHuongDanChinhNavigation.IdNguoi ?? 0])
                     </td>
                     <td>
-                        @if (item.IdNguoiHuongDanPhuNavigation.IdNguoi != null)
+                        @if (item.IdNguoiHuongDanPhuNavigation.IdNguoiNavigation.IdNguoi != null)
                             @Html.DisplayFor(modelItem => idNguoiToName[item.IdNguoiHuongDanPhuNavigation.IdNguoi ?? 0])
-                    </td>
+                    </td> *@
                     <td>
                         @Html.DisplayFor(modelItem => item.SoQuyetDinhCongNhan)
                     </td>
