@@ -261,7 +261,6 @@ namespace C500Hemis.Controllers.NH
                 {
                     return NotFound();
                 }
-
                 return View(tbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc);
             }
             catch (Exception ex)
@@ -297,8 +296,7 @@ namespace C500Hemis.Controllers.NH
         public async Task<IActionResult> ChartCKT()
         {
             List<TbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc> getall = await TbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHocs();
-            // Lấy data từ các table khác có liên quan (khóa ngoài) để hiển thị trên Index
-           
+            // Lấy data từ các table khác có liên quan (khóa ngoài) để hiển thị trên Index           
             return View(getall);
         }
     }
