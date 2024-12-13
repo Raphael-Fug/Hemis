@@ -294,5 +294,12 @@ namespace C500Hemis.Controllers.NH
             var tbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHocs = await ApiServices_.GetAll<TbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc>("/api/nh/DanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc");
             return tbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHocs.Any(e => e.IdDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc == id);
         }
+        public async Task<IActionResult> ChartCKT()
+        {
+            List<TbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHoc> getall = await TbDanhHieuThiDuaGiaiThuongKhenThuongNguoiHocs();
+            // Lấy data từ các table khác có liên quan (khóa ngoài) để hiển thị trên Index
+           
+            return View(getall);
+        }
     }
 }

@@ -4,130 +4,27 @@
     ViewData["Title"] = "SỬA";
     Dictionary<int, string> idNguoiToName = (Dictionary<int, string>)ViewData["idNguoiToName"];
 }
+@section Heads {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.2.2/css/fixedColumns.bootstrap5.min.css">
 
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedcolumns/4.2.2/js/dataTables.fixedColumns.min.js"></script>
+    <link href="~/css/ThongTinHocTapNghienCuuSinh.css" rel="stylesheet" />
 
-@section Styles {
-    <style>
-        /* Đặt hình nền cho phần body của trang */
-        body {
-            background-image: url("https://hoanghamobile.com/tin-tuc/wp-content/uploads/2023/07/cach-thiet-ke-background-dep-2.jpg");
-        }
-
-        /* Định dạng cho khối div chứa form, không phải vùng toàn thể (body) của web */
-        .row {
-            min-width: 500px; /* Kích thước tối thiểu của khối div, có thể cuộn nếu nội dung vượt quá */
-            display: flex; /* Sử dụng Flexbox để sắp xếp các phần tử bên trong */
-            justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
-            margin-top: 20px; /* Khoảng cách phía trên */
-        }
-
-        /* Định dạng cho form */
-        form {
-            background-color: #f9f9f9; /* Màu nền cho form */
-            padding: 20px; /* Khoảng cách bên trong form */
-            border-radius: 10px; /* Bo góc cho form */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Tạo hiệu ứng bóng cho form, làm nổi bật trên nền */
-        }
-
-        /* Định dạng cho tiêu đề của form */
-        h1 {
-            font-size: 36px; /* Kích thước chữ */
-            text-align: center; /* Căn giữa tiêu đề */
-            color: #333; /* Màu chữ */
-            margin-bottom: 20px; /* Khoảng cách phía dưới tiêu đề */
-        }
-
-        /* Định dạng cho các nhãn (label) */
-        label {
-            font-weight: bold; /* Đậm chữ */
-            color: #444; /* Màu chữ cho nhãn */
-        }
-
-        /* Định dạng cho khối chứa các trường thông tin */
-        .form-group {
-            margin-bottom: 15px; /* Khoảng cách giữa các trường thông tin */
-        }
-
-        /* Định dạng cho các ô nhập liệu */
-        .form-control {
-            width: 100%; /* Chiều rộng 100% của phần tử cha */
-            padding: 10px; /* Khoảng cách bên trong ô nhập liệu */
-            font-size: 16px; /* Kích thước chữ trong ô nhập liệu */
-            border: 1px solid #ccc; /* Đường viền ô nhập liệu */
-            border-radius: 5px; /* Bo góc cho ô nhập liệu */
-            transition: all 0.3s ease; /* Hiệu ứng chuyển tiếp khi thay đổi trạng thái */
-        }
-
-            /* Định dạng khi ô nhập liệu được chọn (focus) */
-            .form-control:focus {
-                border-color: #007bff; /* Đổi màu viền khi ô được chọn */
-                box-shadow: 0 0 8px rgba(0, 123, 255, 0.2); /* Tạo hiệu ứng bóng khi ô được chọn */
-                outline: none; /* Ẩn outline mặc định */
-            }
-
-        /* Định dạng cho thông báo lỗi */
-        .text-danger {
-            color: #e3342f; /* Màu chữ cho thông báo lỗi */
-        }
-
-        /* Định dạng cho nút xác nhận */
-        .btn-primary {
-            background-color: #007bff;
-            border: none; /* Không có viền */
-            padding: 12px 20px; /* Khoảng cách bên trong nút */
-            color: white; /* Màu chữ */
-            font-size: 16px;
-            border-radius: 5px; /* Bo góc cho nút */
-            cursor: pointer; /* Hiển thị con trỏ khi di chuột qua nút */
-            transition: background-color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển tiếp khi di chuột qua nút */
-        }
-
-            /* Định dạng khi di chuột vào nút xác nhận */
-            .btn-primary:hover {
-                background-color: #0056b3;
-                transform: scale(1.05); /* Tăng kích thước nút một chút */
-            }
-
-        /* Định dạng cho nút quay lại */
-        .back {
-            display: inline-block; /* Hiển thị nút như một khối inline */
-            padding: 10px 15px; /* Khoảng cách bên trong nút */
-            background-color: #6c757d;
-            color: white;
-            border-radius: 5px; /* Bo góc cho nút */
-            text-decoration: none; /* Bỏ gạch chân */
-            margin-top: 15px; /* Khoảng cách phía trên */
-            transition: background-color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển tiếp khi di chuột qua */
-        }
-
-            /* Định dạng khi di chuột vào nút quay lại */
-            .back:hover {
-                background-color: #5a6268; /* Đổi màu nền khi di chuột qua */
-                transform: scale(1.05); /* Tăng kích thước nút một chút */
-                color: blue;
-            }
-
-        /* Căn giữa nút xác nhận */
-        .submit {
-            display: flex; /* Sử dụng Flexbox để căn giữa */
-            justify-content: center; /* Căn giữa theo chiều ngang */
-        }
-
-        /* Định dạng cho thông báo lỗi tổng hợp */
-        .validation-summary-errors {
-            background-color: #f8d7da;
-            color: yellow; /* Màu chữ cho thông báo lỗi */
-            padding: 10px; /* Khoảng cách bên trong thông báo */
-            border-radius: 5px; /* Bo góc cho thông báo */
-            border: 1px solid #f5c6cb; /* Đường viền cho thông báo lỗi */
-            margin-bottom: 20px; /* Khoảng cách phía dưới thông báo lỗi */
-        }
-    </style>
 }
-<h1>Chỉnh sửa</h1>
-
-<div class="row">
-    <div class="col-md-4">
+<h2>CHỈNH SỬA THÔNG TIN KỶ LUẬT</h2>
+<div class="container">
+    <div style="position: relative;">
+        <a asp-action="Index" style="position: absolute; top: 10px; right: 10px; margin-top:-20px;">
+            <div class="icon-container">
+                <i class="fa-solid fa-circle-arrow-left" style="font-size:25px;"></i>
+            </div>
+        </a>
+    </div>
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdKyLuatNguoiHoc" />
@@ -177,22 +74,65 @@
                 <input asp-for="NamBiKyLuat" class="form-control" />
                 <span asp-validation-for="NamBiKyLuat" class="text-danger"></span>
             </div>
-            <div class="sub_back">
-                <div class="submit">
+        <table>
+            <div class="row justify-content-center">
+                <div class="col-auto text-center">
                     <input type="submit" value="Xác nhận" class="btn btn-primary" />
                 </div>
-
-                <a class="back" asp-action="Index">Quay lại</a>
-
             </div>
+
+        </table>
         </form>
     </div>
-</div>
 
+
+@*datalist để tìm kiếm trong seclectlist*@
+<script>
+    var select = document.querySelectorAll("select");
+    var data = {};
+    for (var i = 0; i < select.length; ++i) {
+        select[i].hidden = true;
+        let cr = {};
+        let idlist = "datalist" + i.toString();
+        let input = document.createElement("input");
+        let datalist = document.createElement("datalist");
+        let options = select[i].options;
+        let validate = document.createElement("span");
+        input.placeholder = "Nhập để tìm kiếm...";
+        input.className = "form-control";
+        input.setAttribute("list", idlist);
+        input.setAttribute("selid", select[i].id);
+        input.value = select[i].options[select[i].selectedIndex].text;
+        input.addEventListener("change", function (e) {
+            let selid = e.target.getAttribute("selid");
+            let validate = document.getElementById("Validate_" + selid);
+            if (typeof data[selid][e.target.value] !== 'undefined') {
+                document.getElementById(selid).selectedIndex = data[selid][e.target.value];
+                validate.innerHTML = "";
+            } else {
+                validate.innerHTML = validate.getAttribute("msg");
+            }
+        });
+        for (var j = 0; j < options.length; ++j) {
+            cr[options[j].text] = j;
+            let option = document.createElement("option");
+            option.value = options[j].text;
+            datalist.appendChild(option);
+        }
+        datalist.id = idlist;
+        data[select[i].id] = cr;
+        validate.className = "text-danger";
+        validate.id = "Validate_" + select[i].id;
+        validate.setAttribute("msg", "Không hợp lệ");
+        select[i].after(input, datalist, validate);
+    }
+</script>
 
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 }
+

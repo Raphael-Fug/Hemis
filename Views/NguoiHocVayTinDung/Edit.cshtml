@@ -4,47 +4,27 @@
     ViewData["Title"] = "Edit";
     Dictionary<int, string> idNguoiToName = (Dictionary<int, string>)ViewData["idNguoiToName"];
 }
+@section Heads {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.2.2/css/fixedColumns.bootstrap5.min.css">
 
-<!-- Link to Bootstrap CSS and Google Fonts -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedcolumns/4.2.2/js/dataTables.fixedColumns.min.js"></script>
+    <link href="~/css/ThongTinHocTapNghienCuuSinh.css" rel="stylesheet" />
 
-<style>
-    body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #f8f9fa;
-    }
-
-    h1, h4 {
-        text-align: center;
-        color: #343a40;
-    }
-
-    .form-control {
-        border-radius: 0.5rem;
-    }
-
-    .btn {
-        border-radius: 0.5rem;
-        padding: 10px 20px;
-    }
-
-    .text-danger {
-        font-weight: bold;
-    }
-
-    .container {
-        margin-top: 20px;
-    }
-</style>
-
-<div class="container">
-    <h1>Chỉnh sửa</h1>
-    <h4>Người học vay tín dụng</h4>
-    <hr />
-
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
+}
+<h2>CHỈNH SỬA THÔNG TIN VAY TÍN DỤNG</h2>
+<<div class="container">
+    <div style="position: relative;">
+        <a asp-action="Index" style="position: absolute; top: 10px; right: 10px; margin-top:-20px;">
+            <div class="icon-container">
+                <i class="fa-solid fa-circle-arrow-left" style="font-size:25px;"></i>
+            </div>
+        </a>
+    </div>
             <form asp-action="Edit">
                 <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
                 <input type="hidden" asp-for="IdNguoiHocVayTinDung" />
@@ -101,17 +81,65 @@
                     <span asp-validation-for="TinhTrangVay" class="text-danger"></span>
                 </div>
 
-                <div class="form-group">
-                    <input type="submit" value="Lưu" class="btn btn-primary" />
-                    <a asp-action="Index" class="btn btn-secondary">Về trang chủ</a>
+        <table>
+            <div class="row justify-content-center">
+                <div class="col-auto text-center">
+                    <input type="submit" value="Xác nhận" class="btn btn-primary" />
                 </div>
+            </div>
+
+        </table>
             </form>
         </div>
-    </div>
-</div>
+
+
+@*datalist để tìm kiếm trong seclectlist*@
+<script>
+    var select = document.querySelectorAll("select");
+    var data = {};
+    for (var i = 0; i < select.length; ++i) {
+        select[i].hidden = true;
+        let cr = {};
+        let idlist = "datalist" + i.toString();
+        let input = document.createElement("input");
+        let datalist = document.createElement("datalist");
+        let options = select[i].options;
+        let validate = document.createElement("span");
+        input.placeholder = "Nhập để tìm kiếm...";
+        input.className = "form-control";
+        input.setAttribute("list", idlist);
+        input.setAttribute("selid", select[i].id);
+        input.value = select[i].options[select[i].selectedIndex].text;
+        input.addEventListener("change", function (e) {
+            let selid = e.target.getAttribute("selid");
+            let validate = document.getElementById("Validate_" + selid);
+            if (typeof data[selid][e.target.value] !== 'undefined') {
+                document.getElementById(selid).selectedIndex = data[selid][e.target.value];
+                validate.innerHTML = "";
+            } else {
+                validate.innerHTML = validate.getAttribute("msg");
+            }
+        });
+        for (var j = 0; j < options.length; ++j) {
+            cr[options[j].text] = j;
+            let option = document.createElement("option");
+            option.value = options[j].text;
+            datalist.appendChild(option);
+        }
+        datalist.id = idlist;
+        data[select[i].id] = cr;
+        validate.className = "text-danger";
+        validate.id = "Validate_" + select[i].id;
+        validate.setAttribute("msg", "Không hợp lệ");
+        select[i].after(input, datalist, validate);
+    }
+</script>
+
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 }
+
